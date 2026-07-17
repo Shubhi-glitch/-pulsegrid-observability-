@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PulseGrid Test Client</title>
+</head>
+<body>
+  <h1>Live Metrics Test</h1>
+  <div id="output"></div>
+
+  <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+  <script>
+    const socket = io("http://localhost:5000");
+
+    socket.on("connect", () => {
+      console.log("Connected to server! ID:", socket.id);
+    });
+
+    socket.on("metric-update", (data) => {
+      console.log("Naya data mila:", data);
+      const output = document.getElementById("output");
+      output.innerHTML += `<p>${data.service} - CPU: ${data.cpu}% - Time: ${data.timestamp}</p>`;
+    });
+  </script>
+</body>
+</html>
