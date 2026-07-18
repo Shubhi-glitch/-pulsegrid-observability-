@@ -19,6 +19,22 @@ PulseGrid streams live service health metrics — CPU usage, latency, and error 
 
 ---
 
+## 📸 Screenshots
+
+<div align="center">
+
+| Live Dashboard | 3D Network Graph |
+|---|---|
+| ![Dashboard](docs/screenshots/dashboard.png) | ![3D Graph](docs/screenshots/network-graph.png) |
+
+| CPU History | Incident Alerts |
+|---|---|
+| ![CPU History](docs/screenshots/cpu-history.png) | ![Incidents](docs/screenshots/incidents.png) |
+
+</div>
+
+---
+
 ## 📖 Overview
 
 Modern engineering teams manage hundreds of interdependent microservices — when one degrades, engineers need to know **immediately**, and **exactly where**. PulseGrid is a self-built exploration of that problem: a lightweight observability platform simulating a distributed system, complete with live telemetry, threshold-based alerting, and automated incident lifecycle management.
@@ -157,7 +173,7 @@ This project is licensed under the MIT License.
 **Shubhi Tiwari**
 Final-year CS Engineering Student, KIIT
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://linkedin.com/in/shubhi-tiwari)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://linkedin.com/in/shubhi-tiwari-a12028254)
 [![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white)](https://github.com/Shubhi-glitch)
 
 </div>
