@@ -1,58 +1,71 @@
+<div align="center">
+
 # PulseGrid
 
-> Real-time distributed system monitoring & incident response dashboard
+**Real-time distributed system monitoring & incident response dashboard**
 
-PulseGrid is a full-stack observability platform that streams live service health metrics — CPU usage, latency, and error rate — over WebSockets, visualizes them on an interactive 3D network graph, and automatically raises incidents when alert thresholds are breached.
+[![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white)](https://nodejs.org/)
+[![React](https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=black)](https://react.dev/)
+[![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat&logo=mongodb&logoColor=white)](https://www.mongodb.com/)
+[![Socket.io](https://img.shields.io/badge/Socket.io-black?style=flat&logo=socket.io&badgeColor=010101)](https://socket.io/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=flat&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](#license)
+
+PulseGrid streams live service health metrics — CPU usage, latency, and error rate — over WebSockets, visualizes them on an interactive 3D network graph, and automatically raises incidents when alert thresholds are breached.
+
+[Features](#-features) · [Tech Stack](#-tech-stack) · [Architecture](#-architecture) · [Getting Started](#-getting-started) · [Roadmap](#-roadmap)
+
+</div>
+
+---
+
+## 📖 Overview
+
+Modern engineering teams manage hundreds of interdependent microservices — when one degrades, engineers need to know **immediately**, and **exactly where**. PulseGrid is a self-built exploration of that problem: a lightweight observability platform simulating a distributed system, complete with live telemetry, threshold-based alerting, and automated incident lifecycle management.
 
 ---
 
 ## ✨ Features
 
-- **Live Dashboard** — real-time service health overview, updated every 2 seconds via WebSockets
-- **CPU History Charts** — historical CPU trend lines per service with configurable alert thresholds (e.g. 80% line)
-- **3D Network Graph** — interactive, draggable/rotatable/zoomable visualization of services as nodes; node color reflects live health status
-- **Automated Incident Detection** — alerts auto-generate when a service crosses a defined threshold, and auto-resolve when it recovers
-- **Incident Timeline** — full history of alerts and resolutions with timestamps
-- **Auth & Sessions** — JWT-based login, protected routes, session verification
-- **Live Connection Status** — visual indicator for WebSocket connection health, with automatic reconnection handling
+| Feature | Description |
+|---|---|
+| **Live Dashboard** | Real-time service health overview, streamed via WebSockets and refreshed every 2 seconds |
+| **CPU History Charts** | Historical CPU trend lines per service with configurable alert thresholds |
+| **3D Network Graph** | Interactive, draggable / rotatable / zoomable visualization — node color reflects live health status |
+| **Automated Incident Detection** | Alerts auto-generate when a service crosses a defined threshold, and auto-resolve on recovery |
+| **Incident Timeline** | Full chronological history of alerts and resolutions |
+| **Authentication** | JWT-based login with protected routes and session verification |
+| **Connection Resilience** | Live WebSocket connection indicator with automatic reconnection handling |
 
 ---
 
 ## 🛠 Tech Stack
 
 **Frontend**
-- React (Vite)
-- Tailwind CSS
-- Framer Motion — page transitions & micro-interactions
-- Three.js — 3D network graph rendering
-- Recharts / custom charting — CPU history visualization
-- Socket.io-client — real-time data streaming
+`React (Vite)` · `Tailwind CSS` · `Framer Motion` · `Three.js` · `Recharts` · `Socket.io-client`
 
 **Backend**
-- Node.js + Express
-- MongoDB + Mongoose — services, metrics, incidents, users
-- Socket.io — real-time event broadcasting
-- JWT — authentication
+`Node.js` · `Express` · `MongoDB` + `Mongoose` · `Socket.io` · `JWT`
 
 ---
 
-## 📊 Architecture
+## 🏗 Architecture
 
 ```
 ┌─────────────┐      WebSocket / REST      ┌──────────────┐
 │   Frontend   │ ◄─────────────────────────► │   Backend    │
-│  React+Vite  │                             │ Node+Express │
+│  React + Vite│                             │ Node + Express│
 └─────────────┘                             └──────┬───────┘
                                                      │
                                               ┌──────▼───────┐
                                               │   MongoDB    │
-                                              │ (metrics,    │
-                                              │  incidents,  │
-                                              │  users)      │
+                                              │  metrics /   │
+                                              │  incidents / │
+                                              │  users       │
                                               └──────────────┘
 ```
 
-Simulated microservices continuously emit health metrics → backend evaluates them against alert thresholds → incidents are created/resolved automatically → frontend receives live updates over WebSockets and re-renders the dashboard and 3D graph in real time.
+Simulated microservices continuously emit health metrics → the backend evaluates them against alert thresholds → incidents are created or resolved automatically → the frontend receives live updates over WebSockets and re-renders the dashboard and 3D graph in real time.
 
 ---
 
@@ -80,10 +93,10 @@ pulsegrid/
 ## 🚀 Getting Started
 
 ### Prerequisites
-- Node.js (v18+)
-- MongoDB (local or MongoDB Atlas)
+- Node.js v18+
+- MongoDB (local or [MongoDB Atlas](https://www.mongodb.com/atlas))
 
-### 1. Clone the repo
+### 1. Clone the repository
 ```bash
 git clone https://github.com/Shubhi-glitch/pulsegrid-observability.git
 cd pulsegrid-observability
@@ -95,7 +108,7 @@ cd backend
 npm install
 ```
 Create a `.env` file in `backend/`:
-```
+```env
 MONGO_URI=your_mongodb_connection_string
 PORT=5000
 JWT_SECRET=your_jwt_secret
@@ -110,7 +123,7 @@ cd ../frontend
 npm install
 ```
 Create a `.env` file in `frontend/`:
-```
+```env
 VITE_API_URL=http://localhost:5000
 VITE_SOCKET_URL=http://localhost:5000
 ```
@@ -118,21 +131,33 @@ VITE_SOCKET_URL=http://localhost:5000
 npm run dev
 ```
 
-The app will be running at `http://localhost:5173`.
+The app runs at `http://localhost:5173`.
 
 ---
 
-## 📌 Roadmap
+## 🗺 Roadmap
 
 - [ ] Deploy backend (Railway) + frontend (Vercel)
-- [ ] Add historical analytics / uptime % view
+- [ ] Historical analytics / uptime % view
 - [ ] Multi-user team support with role-based access
-- [ ] Slack/email alert notifications
+- [ ] Slack / email alert notifications
 
 ---
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+---
+
+<div align="center">
 
 ## 👩‍💻 Author
 
 **Shubhi Tiwari**
-Final-year CS Engineering student, KIIT
-[LinkedIn](https://linkedin.com/in/shubhi-tiwari) · [GitHub](https://github.com/Shubhi-glitch)
+Final-year CS Engineering Student, KIIT
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://linkedin.com/in/shubhi-tiwari)
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white)](https://github.com/Shubhi-glitch)
+
+</div>
